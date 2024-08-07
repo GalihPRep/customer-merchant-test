@@ -12,12 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->id();
-            $table->integer("customer_id");
-            $table->integer("merchant_id");
-            $table->integer("product_id");
             $table->integer("quantity");
-            $table->timestamps();
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transactions');
+        Schema::table('transactions', function (Blueprint $table) {
+            //
+        });
     }
 };
