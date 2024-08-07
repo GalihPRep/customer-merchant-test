@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\RewardsController;
 use App\Http\Controllers\TransactionsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,9 @@ Route::delete("/api/product/{id}", [ProductsController::class, "destroy"])->midd
 Route::get("/api/product/{id}", [ProductsController::class, "show"])->middleware("auth:sanctum");
 Route::post("/api/product/{id}", [ProductsController::class, "update"])->middleware("auth:sanctum");
 Route::get("/api/products", [ProductsController::class, "index"])->middleware("auth:sanctum");
+
+Route::post("/api/reward", [RewardsController::class, "store"])->middleware("auth:sanctum");
+Route::get("/api/rewards", [RewardsController::class, "index"])->middleware("auth:sanctum");
 
 Route::post("/api/transaction", [TransactionsController::class, "store"])->middleware("auth:sanctum");
 
